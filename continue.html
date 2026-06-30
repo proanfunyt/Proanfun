@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Continue Prompt</title>
-
-
+    <title>Proanfun | Continue</title>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-244R309EFL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-244R309EFL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-244R309EFL');
+    </script>
 
-  gtag('config', 'G-244R309EFL');
-</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-
-    
     <style>
-        /* 1. Global Reset & Body Background */
+        :root {
+            --bg-color:#0A0A0C;
+            --card-bg:#16161A;
+            --card-bg-light:#1B1B20;
+            --text-color:#F2EFE9;
+            --text-muted:#8C8C95;
+            --accent-color:#C9A14B;
+            --accent-hover:#E5C273;
+            --accent-deep:#8A6A24;
+            --accent-pale:#F1DFA8;
+            --border-color:#2B2620;
+            --border-radius:4px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -31,94 +42,126 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start; /* Aligns the prompt layout to the left */
+            align-items: center;
             padding: 40px;
-            background-color: #fafafa; /* Modern, soft off-white background */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 15% 0%, rgba(201,161,75,0.06) 0%, transparent 45%),
+                radial-gradient(circle at 85% 100%, rgba(201,161,75,0.05) 0%, transparent 45%);
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            color: var(--text-color);
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 2. Heading Typography Styles */
-        .prompt-text {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            letter-spacing: -0.5px;
-            margin-bottom: 24px; /* Space between text and the buttons */
+        .prompt-card {
+            position: relative;
+            max-width: 520px;
+            width: 100%;
+            background: linear-gradient(160deg, var(--card-bg-light) 0%, var(--card-bg) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 48px 44px;
+            text-align: center;
+            box-shadow: 0 12px 30px -10px rgba(0,0,0,0.5);
         }
 
-        /* 3. The Layout Container for Buttons */
+        .prompt-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-color), transparent);
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--accent-color);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .prompt-text {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--accent-pale) 0%, var(--accent-color) 45%, var(--accent-hover) 60%, var(--accent-deep) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            line-height: 1.3;
+            margin-bottom: 34px;
+        }
+
         .button-group {
             display: flex;
-            gap: 12px; /* Perfect, clean spacing between side-by-side buttons */
+            gap: 14px;
+            justify-content: center;
         }
 
-        /* 4. Base Button Layout (Shared Rules) */
         .btn {
+            flex: 1;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            border: none;
+            border: 1px solid var(--accent-color);
             outline: none;
-            padding: 12px 28px;
-            border-radius: 6px;
-            font-size: 0.95rem;
+            padding: 13px 28px;
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
             font-weight: 500;
-            letter-spacing: -0.2px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             line-height: 1;
             text-decoration: none;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.25s ease;
         }
 
-        /* 5. "Yes" Button (Primary Theme) */
         .btn-primary {
-            background-color: #07c900;
-            color: #1a1a1a;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+            background: transparent;
+            color: var(--accent-hover) !important;
         }
 
         .btn-primary:hover {
-            background-color: rgb(9, 219, 2);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06);
+            background: linear-gradient(135deg, var(--accent-deep) 0%, var(--accent-color) 50%, var(--accent-hover) 100%);
+            color: #14110A !important;
+            border-color: var(--accent-hover);
+            box-shadow: 0 6px 20px -4px rgba(201, 161, 75, 0.45);
         }
 
-        .btn-primary:active {
-            transform: translateY(1px);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        /* 6. "No" Button (Secondary Subdued Theme) */
         .btn-secondary {
-            background-color: #d80101;
-            color: #0e0e0e;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+            background: transparent;
+            color: var(--text-muted) !important;
+            border-color: var(--border-color);
         }
 
         .btn-secondary:hover {
-            background-color: #e20101;
-            color: #1a202c;
-            border-color: #cbd5e0;
-            transform: translateY(-1px);
+            color: var(--text-color) !important;
+            border-color: var(--text-muted);
+            background-color: rgba(255,255,255,0.03);
         }
 
-        .btn-secondary:active {
+        .btn:active {
             transform: translateY(1px);
         }
     </style>
 </head>
 <body>
-
-    <!-- Prompt Question -->
-    <h1 class="prompt-text">Do you want to continue to your thing?</h1>
-
-    <!-- Action Buttons Side-by-Side -->
-    <div class="button-group">
-        <a href="hi.html" class="btn btn-primary">Yes</a>
-        <a href="index.html" class="btn btn-secondary">No</a>
+    <div class="prompt-card">
+        <span class="eyebrow">Proanfun</span>
+        <h1 class="prompt-text">Do you want to continue to your thing?</h1>
+        <div class="button-group">
+            <a href="hi.html" class="btn btn-primary">Yes</a>
+            <a href="index.html" class="btn btn-secondary">No</a>
+        </div>
     </div>
-
 </body>
 </html>
