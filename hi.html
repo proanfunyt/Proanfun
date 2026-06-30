@@ -3,215 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proanfun | Learn Python Coding</title>
+    <title>Proanfun | About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* Consistent theme variables */
         :root {
-            --bg-color:#121417;
-            --card-bg:#1D232B;
-            --text-color:#F5F5F5;
-            --text-muted:#A5AFBA;
-            --accent-color:#C9A227;
-            --accent-hover:#E0BB4C;
-            --code-bg:#181C22;
-            --border-color:#2E3642;
-            --border-radius:10px;
+            --bg-color:#0A0A0C;
+            --card-bg:#16161A;
+            --card-bg-light:#1B1B20;
+            --text-color:#F2EFE9;
+            --text-muted:#8C8C95;
+            --code-bg:#1C1A14;
+            --accent-color:#C9A14B;
+            --accent-hover:#E5C273;
+            --accent-deep:#8A6A24;
+            --accent-pale:#F1DFA8;
+            --border-color:#2B2620;
+            --border-radius:4px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
             background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 15% 0%, rgba(201,161,75,0.05) 0%, transparent 45%),
+                radial-gradient(circle at 85% 100%, rgba(201,161,75,0.04) 0%, transparent 45%);
             color: var(--text-color);
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 90px 24px 60px;
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 2px solid var(--card-bg);
-            padding-bottom: 20px;
+            margin-bottom: 50px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--accent-color);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
         h1 {
-            color: var(--text-color);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--accent-pale) 0%, var(--accent-color) 45%, var(--accent-hover) 60%, var(--accent-deep) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 22px;
+            line-height: 1.1;
         }
 
-        .subtitle {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            margin-top: 0;
+        .important-note {
+            display: inline-block;
+            text-align: left;
+            background-color: rgba(201, 161, 75, 0.06);
+            border-left: 3px solid var(--accent-color);
+            color: var(--text-muted);
+            padding: 14px 18px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            font-size: 0.92rem;
+            letter-spacing: 0.2px;
+        }
+
+        .important-note strong {
+            color: var(--accent-hover);
         }
 
         section {
-            background-color: var(--card-bg);
-            padding: 25px;
-            margin-bottom: 25px;
+            position: relative;
+            background: linear-gradient(160deg, var(--card-bg-light) 0%, var(--card-bg) 100%);
+            padding: 36px 40px;
+            margin-bottom: 26px;
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 12px 30px -10px rgba(0,0,0,0.5);
         }
 
-        h2 {
-            color: var(--accent-color);
-            margin-top: 0;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 8px;
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-color), transparent);
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
         }
 
         h3 {
-            color: #f8fafc;
-            margin-top: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--accent-hover);
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         p {
             color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        ul, ol {
-            color: var(--text-muted);
-            padding-left: 20px;
-            font-size: 1.1rem;
-        }
-
-        li {
+            font-size: 1rem;
+            font-weight: 300;
             margin-bottom: 10px;
+            letter-spacing: 0.2px;
         }
 
-        /* Styling for code snippets */
         code {
             background-color: var(--code-bg);
-            color: #D4AF37;
-            padding: 2px 6px;
-            border-radius: 4px;
+            color: var(--accent-hover);
+            padding: 2px 7px;
+            border-radius: 3px;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 0.95rem;
-        }
-
-        pre {
-            background-color: var(--code-bg);
-            padding: 15px;
-            border-radius: var(--border-radius);
-            border: 1px solid #334155;
-            overflow-x: auto;
-        }
-
-        pre code {
-            color: rgb(255, 251, 0);
-            background-color: transparent;
-            padding: 0;
-        }
-
-        .important-note {
-            background-color: rgba(56, 189, 248, 0.1);
-            border-left: 4px solid var(--accent-color);
-            padding: 15px;
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-            margin: 20px 0;
+            font-size: 0.9rem;
         }
 
         .nav-buttons {
             display: flex;
-            gap: 15px;
-            margin-top: 30px;
+            gap: 14px;
+            margin-top: 36px;
         }
 
         .btn {
             flex: 1;
-            background-color: var(--accent-color);
-            color: #0f172a !important;
-            padding: 12px 24px;
-            border: none;
-            border-radius: var(--border-radius);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            font-weight: bold;
-            text-align: center;
+            border: 1px solid var(--accent-color);
+            outline: none;
+            padding: 13px 28px;
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1;
             text-decoration: none;
-            transition: background-color 0.2s ease, transform 0.1s ease;
+            transition: all 0.25s ease;
         }
 
-        .btn:hover {
-            background-color: var(--accent-hover);
-            text-decoration: none;
+        .btn-primary {
+            background: transparent;
+            color: var(--accent-hover) !important;
         }
 
-        .btn.outline {
-            background-color: transparent;
-            color: var(--accent-color) !important;
-            border: 2px solid var(--accent-color);
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--accent-deep) 0%, var(--accent-color) 50%, var(--accent-hover) 100%);
+            color: #14110A !important;
+            border-color: var(--accent-hover);
+            box-shadow: 0 6px 20px -4px rgba(201, 161, 75, 0.45);
         }
 
-        .btn.outline:hover {
-            background-color: var(--accent-color);
-            color: #0f172a !important;
+        .btn:active {
+            transform: translateY(1px);
         }
 
         footer {
             text-align: center;
             margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid var(--card-bg);
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
             color: var(--text-muted);
-            font-style: normal;
-        }
-
-        .paragraph {
-            margin-bottom: 0;
-            margin-top: 0;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
+            <span class="eyebrow">Proanfun</span>
             <h1>About Proanfun</h1>
-            <subtitle class="important-note"><strong>Note: </strong>This website is a work in progress so don't expect it to look great yet!</subtitle>
+            <span class="important-note"><strong>Note:</strong> This website is a work in progress so don't expect it to look great yet!</span>
         </header>
 
         <section>
-          <h3>Who is Proanfun?</h3>
-
-        </r>
-
-         <p class="paragraph"><code>I am Proanfun</code>, I am a youtuber who loves to play VR</p>
-         <p class="paragraph">I also enjoy learning coding languages i recently started</p>
-         <p class="paragraph">learning <code>html</code> and <code>css</code>, in fact i am creating this website</p>
-         <p class="paragraph">with <code>html</code> and <code>css</code>. instead of using templates or paying for</p>
-         <p class="paragraph">a domain i am coding it myself and using <code>github pages</code> to host it.</p>
+            <h3>Who is Proanfun?</h3>
+            <p><code>I am Proanfun</code>, I am a youtuber who loves to play VR.</p>
+            <p>I also enjoy learning coding languages — I recently started learning <code>html</code> and <code>css</code>, in fact I am creating this website with <code>html</code> and <code>css</code>. Instead of using templates or paying for a domain, I am coding it myself and using <code>github pages</code> to host it.</p>
         </section>
 
         <section>
-          <h3>Why am i choosing to make a website?</h3>
-
-        </r>
-
-         <p class="paragraph">I am choosing to make a website and update it regularly to keep up as i dont</p>
-         <p class="paragraph">post on youtube as much as i would like to.</p>
-
+            <h3>Why am I choosing to make a website?</h3>
+            <p>I am choosing to make a website and update it regularly to keep up, as I don't post on YouTube as much as I would like to.</p>
         </section>
 
         <section>
-          <h3>Why dont i post on youtube much?</h3>
+            <h3>Why don't I post on YouTube much?</h3>
+            <p>I don't post on YouTube as much as I would like to because I struggle with getting the content right, and I also struggle with getting the content onto my PC to edit it.</p>
+            <p>Another reason I don't publish is because I do other things such as making this website, and it's also a fact that I use most of my time to learn coding languages.</p>
+        </section>
 
-        </r>
+        <div class="nav-buttons">
+            <a href="index.html" class="btn btn-primary">Back</a>
+        </div>
 
-        <p class="paragraph">I dont post on youtube as much as i would like to because i struggle with getting the content right,</p>
-        <p class="paragraph">and i also struggle with getting the content onto my pc to edit it.</p>
-        <p></p>
-        <p class="paragraph">another reason i dont publish is because i do other things such as making this website and</p>
-        <p class="paragraph">its also a fact that i use most of my time to learn coding languages.</p>
-
+        <footer>
+            &copy; 2026 Proanfun. All rights reserved.
+        </footer>
     </div>
-
 </body>
 </html>
