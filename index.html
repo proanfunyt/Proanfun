@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proanfun | Welcome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color:#121417;
-            --card-bg:#1D232B;
-            --text-color:#F5F5F5;
-            --text-muted:#A5AFBA;
-            --accent-color:#C9A227;
-            --accent-hover:#E0BB4C;
-            --code-bg:#181C22;
-            --border-color:#2E3642;
-            --border-radius:10px;
+            --bg-color:#0A0A0C;
+            --card-bg:#16161A;
+            --card-bg-light:#1B1B20;
+            --text-color:#F2EFE9;
+            --text-muted:#8C8C95;
+            --accent-color:#C9A14B;
+            --accent-hover:#E5C273;
+            --accent-deep:#8A6A24;
+            --accent-pale:#F1DFA8;
+            --border-color:#2B2620;
+            --border-radius:4px;
 }
 
         * {
@@ -24,69 +28,130 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
             background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 15% 0%, rgba(201,161,75,0.05) 0%, transparent 45%),
+                radial-gradient(circle at 85% 100%, rgba(201,161,75,0.04) 0%, transparent 45%);
             color: var(--text-color);
             -webkit-font-smoothing: antialiased;
         }
 
         .hero-banner {
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
-            padding: 100px 20px;
+            position: relative;
+            background: #0F0F12;
+            padding: 130px 20px 110px;
             text-align: center;
-            border-bottom: 2px solid var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(201,161,75,0.10) 0%, rgba(10,10,12,0) 60%);
+            pointer-events: none;
+        }
+
+        .hero-banner::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+        }
+
+        .eyebrow {
+            position: relative;
+            display: inline-block;
+            color: var(--accent-color);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
         }
 
         .welcome-title {
-            color: var(--bg-color);
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 12px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--accent-pale) 0%, var(--accent-color) 45%, var(--accent-hover) 60%, var(--accent-deep) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            line-height: 1.1;
         }
 
         .subtitle {
-            color: var(--bg-color);
-            font-size: 1.15rem;
-            font-weight: 400;
-            max-width: 600px;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+            max-width: 520px;
             margin: 0 auto;
         }
 
         .content-container {
-            max-width: 800px;
-            margin: 40px auto;
+            max-width: 760px;
+            margin: 70px auto;
             padding: 0 24px;
         }
 
         section {
-            background-color: var(--card-bg);
-            padding: 25px;
-            margin-bottom: 25px;
+            position: relative;
+            background: linear-gradient(160deg, var(--card-bg-light) 0%, var(--card-bg) 100%);
+            padding: 38px 42px;
+            margin-bottom: 28px;
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 12px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-color), transparent);
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
         }
 
         h2 {
-            color: var(--accent-color);
-            font-size: 1.75rem;
-            margin-bottom: 16px;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 8px;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--accent-hover);
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         p {
             color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 12px;
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 14px;
+            letter-spacing: 0.2px;
         }
 
         hr {
             border: none;
-            border-top: 1px solid #334155;
-            margin: 16px 0;
+            border-top: 1px solid var(--border-color);
+            margin: 20px 0;
         }
 
         .btn-primary {
@@ -94,43 +159,44 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            border: none;
+            border: 1px solid var(--accent-color);
             outline: none;
-            padding: 12px 28px;
+            padding: 13px 32px;
             border-radius: var(--border-radius);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--accent-color);
-            color: var(--bg-color) !important;
-            font-size: 0.95rem;
+            font-family: 'Montserrat', sans-serif;
+            background: transparent;
+            color: var(--accent-hover) !important;
+            font-size: 0.78rem;
             font-weight: 500;
-            letter-spacing: -0.2px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             line-height: 1;
             text-decoration: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
+            margin-top: 6px;
         }
 
         .btn-primary:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, var(--accent-deep) 0%, var(--accent-color) 50%, var(--accent-hover) 100%);
+            color: #14110A !important;
+            border-color: var(--accent-hover);
+            box-shadow: 0 6px 20px -4px rgba(201, 161, 75, 0.45);
             text-decoration: none;
         }
 
         .btn-primary:active {
-            transform: translateY(0);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            transform: translateY(1px);
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            border-top: 1px solid var(--card-bg);
+            margin-top: 60px;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border-color);
             color: var(--text-muted);
-            background-color: #111827;
-            border-radius: 0 0 var(--border-radius) var(--border-radius);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            background-color: #0C0C0F;
         }
 
     
@@ -140,6 +206,7 @@
 
 <body>
     <div class="hero-banner">
+        <span class="eyebrow">Proanfun</span>
         <h1 class="welcome-title">Welcome</h1>
         <p class="subtitle">this is my fun site. i made it to have fun while coding</p>
     </div>
